@@ -19,6 +19,7 @@
 
 const expect = require("chai").expect;
 let mazos = require("../src/deck");
+let carta = require("../src/card");
 
 describe("Test unitarios para clase Mazo(Deck):",
 function() {
@@ -39,18 +40,35 @@ function() {
   });
 
   /**
-    * @description Expect para comprobar el correcto funcionamiento del metodo imprimir
-    * de la clase mazo, utilizado para comprobar el correcto funcionamiento del
-    * construtor
+    * @description Expect para comprobar el correcto funcionamiento del popCard, 
+    * encargado de sacar la ultima carta del mazo, la mas superficial y retornarla
   */
-  describe("Probando constructor de la clase mazo", function() {
+  describe("Probando funcion popCard() para extraer ultima carta", function() {
     /**
-     * @description Expect para comprobar el correcto funcionamiento del metodo imprimir
+     * @description Expect para comprobar el correcto funcionamiento del metodo popCard()
      * @param {}
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
-    it ("Comprobando funcion para imprimir de la clase mazo", function() {
-      expect(mazo.write()).to.equal("Ace of SPADES2 of SPADES3 of SPADES4 of SPADES5 of SPADES6 of SPADES7 of SPADES8 of SPADES9 of SPADES10 of SPADESJack of SPADESQueen of SPADESKing of SPADESAce of HEARTS2 of HEARTS3 of HEARTS4 of HEARTS5 of HEARTS6 of HEARTS7 of HEARTS8 of HEARTS9 of HEARTS10 of HEARTSJack of HEARTSQueen of HEARTSKing of HEARTSAce of DIAMONDS2 of DIAMONDS3 of DIAMONDS4 of DIAMONDS5 of DIAMONDS6 of DIAMONDS7 of DIAMONDS8 of DIAMONDS9 of DIAMONDS10 of DIAMONDSJack of DIAMONDSQueen of DIAMONDSKing of DIAMONDSAce of CLUBS2 of CLUBS3 of CLUBS4 of CLUBS5 of CLUBS6 of CLUBS7 of CLUBS8 of CLUBS9 of CLUBS10 of CLUBSJack of CLUBSQueen of CLUBSKing of CLUBS");
+    let lastCard = new carta.Card("CLUBS", "King");
+    it ("Comprobando funcion extraer carta de la  clase mazo", function() {
+      expect(console.log(mazo.popCard())).to.equal(console.log(lastCard));
     });
   });
+
+  // /**
+  //   * @description Expect para comprobar el correcto funcionamiento del addCard, 
+  //   * encargado de añadir una nueva carta en la ultima posicion del mazo
+  // */
+  // describe("Probando funcion addCard() para añadir nueva carta", function() {
+  //   /**
+  //    * @description Expect para comprobar el correcto funcionamiento del metodo addCard()
+  //    * @param {}
+  //    * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+  //   */
+  //   let lastCard = new carta.Card("HEARTS", "16");
+  //   it ("Comprobando funcion extraer carta de la  clase mazo", function() {
+  //     mazo.addCard(lastCard);
+  //     expect(console.log(mazo.popCard())).to.equal(console.log(lastCard));
+  //   });
+  // });
 });

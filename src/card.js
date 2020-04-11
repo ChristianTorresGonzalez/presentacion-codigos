@@ -197,10 +197,10 @@ class Card {
     */
     compareTwoCards(secondCard) {
         if (this.suit.name === secondCard.getCardSuitName()) {
-            return (this.rank > secondCard.rank) ? true : false;
+            return (this.rank > secondCard.rank) ? this : secondCard;
         }
         else {
-            return (this.suit.value > secondCard.suit.value) ? true : false;
+            return (this.suit.value > secondCard.suit.value) ? this : secondCard;
         }
     }
 }

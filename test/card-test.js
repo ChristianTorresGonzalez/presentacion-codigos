@@ -187,10 +187,10 @@ function() {
     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando la salida de CARTA_1 mayor que CARTA_2", function() {
-      expect(picas.compareTwoCards(diamantes)).to.equal(true);
+      expect(picas.compareTwoCards(diamantes)).to.equal(picas);
     });
     it ("Comprobando la salida de CARTA_2 mayor que CARTA_1", function() {
-      expect(treboles.compareTwoCards(picas)).to.equal(false);
+      expect(treboles.compareTwoCards(picas)).to.equal(picas);
     });
   });
 });
