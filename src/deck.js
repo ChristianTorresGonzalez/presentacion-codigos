@@ -66,23 +66,23 @@ class Deck {
         this.mazo.push(carta);
     }
 
-    // /**
-    //  * @description Funcion mezclar las cartas del mazo
-    //  * @param {}. No recibimos parametros ya que solo queremos mezclar las cartas ya
-    //  * introducidas en el mazo
-    //  * @returns {Card} En esta funcion no retornamos, ya que mezclaremos las cartas ya
-    //  * almacenadas en el mazo
-    // */
-    // shuffle() {
-    //     let arrayAuxiliar = [];
-    //     let size = this.mazo.length;
+    /**
+     * @description Funcion mezclar las cartas del mazo
+     * @param {}. No recibimos parametros ya que solo queremos mezclar las cartas ya
+     * introducidas en el mazo
+     * @returns {Card} En esta funcion no retornamos, ya que mezclaremos las cartas ya
+     * almacenadas en el mazo
+    */
+    shuffle() {
+        let arrayAuxiliar = [];
+        let size = this.mazo.length;
 
-    //     for (let i = 0; i < size; i++) {
-    //         let index = Math.floor(Math.random() * this.mazo.length);
-    //         arrayAuxiliar.push(this.mazo[index]);
-    //         this.mazo.splice(index, 1);
-    //     }
-    // }
+        for (let i = 0; i < size; i++) {
+            let index = Math.floor(Math.random() * this.mazo.length);
+            arrayAuxiliar.push(this.mazo[index]);
+            this.mazo.splice(index, 1);
+        }
+    }
 }
 
 // let mazo = new Deck;
