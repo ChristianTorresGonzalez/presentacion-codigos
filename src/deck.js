@@ -54,17 +54,17 @@ class Deck {
         return (this.mazo.pop());
     }
 
-    // /**
-    //  * @description Funcion introducir en la ultima posicion del mazo, es decir, la 
-    //  * que mas arriba
-    //  * se encuentra.
-    //  * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
-    //  * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
-    //  * mas superficial
-    // */
-    // addCard(carta) {
-    //     this.mazo.push(carta);
-    // }
+    /**
+     * @description Funcion introducir en la ultima posicion del mazo, es decir, la 
+     * que mas arriba
+     * se encuentra.
+     * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
+     * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
+     * mas superficial
+    */
+    addCard(carta) {
+        this.mazo.push(carta);
+    }
 
     // /**
     //  * @description Funcion mezclar las cartas del mazo

@@ -55,20 +55,20 @@ function() {
     });
   });
 
-  // /**
-  //   * @description Expect para comprobar el correcto funcionamiento del addCard, 
-  //   * encargado de añadir una nueva carta en la ultima posicion del mazo
-  // */
-  // describe("Probando funcion addCard() para añadir nueva carta", function() {
-  //   /**
-  //    * @description Expect para comprobar el correcto funcionamiento del metodo addCard()
-  //    * @param {}
-  //    * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-  //   */
-  //   let lastCard = new carta.Card("HEARTS", "16");
-  //   it ("Comprobando funcion extraer carta de la  clase mazo", function() {
-  //     mazo.addCard(lastCard);
-  //     expect(console.log(mazo.popCard())).to.equal(console.log(lastCard));
-  //   });
-  // });
+  /**
+    * @description Expect para comprobar el correcto funcionamiento del addCard, 
+    * encargado de añadir una nueva carta en la ultima posicion del mazo
+  */
+  describe("Probando funcion addCard() para añadir nueva carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento del metodo addCard()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    let lastCard = new carta.Card("HEARTS", "16");
+    it ("Comprobando funcion extraer carta de la  clase mazo", function() {
+      mazo.addCard(lastCard);
+      expect(console.log(mazo.popCard())).to.equal(console.log(lastCard));
+    });
+  });
 });
