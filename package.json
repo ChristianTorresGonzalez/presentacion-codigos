@@ -1,0 +1,22 @@
+{
+  "name": "practica-8-poker-christiantorresgonzalez",
+  "version": "1.0.0",
+  "description": "Practica 8 PAI. Poker",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-8-poker-ChristianTorresGonzalez.git"
+  },
+  "author": "Christian Torres Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-8-poker-ChristianTorresGonzalez/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-8-poker-ChristianTorresGonzalez#readme"
+}
