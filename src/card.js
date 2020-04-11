@@ -35,7 +35,7 @@ const SUITS = {
     },
     DIAMONDS: {
         name: "DIAMONDS",
-        value: "2"
+        value: 2
     },
     CLUBS: {
         name: "CLUBS",
@@ -47,17 +47,17 @@ function getSuit(suit) {
     switch (suit) {
         case SUITS.SPADES.name:
             return SUITS.SPADES;
-        // case SUITS.HEARTS.name:
-        //     return SUITS.HEARTS;
-        // case SUITS.DIAMONDS.name:
-        //     return SUITS.DIAMONDS;
-        // case SUITS.CLUBS.name:
-        //     return SUITS.CLUBS;
+        case SUITS.HEARTS.name:
+            return SUITS.HEARTS;
+        case SUITS.DIAMONDS.name:
+            return SUITS.DIAMONDS;
+        case SUITS.CLUBS.name:
+            return SUITS.CLUBS;
     }
 }
 
 class Card {
-    constructor(suit, rank) {
+    constructor(suit = "CLUBS", rank = 2) {
         this.suit = getSuit(suit);
         this.rank = rank;
     }
@@ -92,8 +92,31 @@ class Card {
     getCardRank() {
         return this.rank;
     }
+
+    /**
+     * @description Funcion setter utilizada para escribir el valor del palo, ya que
+     * son los palos entre si tienen diferentes valores.
+     * @params recibimos el nuevo palo que queremos introducir a la carta
+     * @returns En esta funcion, no retornamos nada, ya que introducimos el nuevo
+     * valor en el atributo que es almacenado
+    */
+    setCardSuit(newSuit) {
+        this.suit.name = getSuit(newSuit).name;
+        this.suit.value = getSuit(newSuit).value;
+    }
+
+    /**
+     * @description Funcion setter utilizada para escribir el valor numerico de la
+     * carta.
+     * @params recibimos el nuevo valor que queremos introducir a la carta
+     * @returns En esta funcion, no retornamos nada, ya que introducimos el nuevo
+     * valor en el atributo que es almacenado
+    */
+    setCardRank(newRank) {
+        this.rank = newRank;
+    }
 }
 
-// let espadas = new Card("SPADES", 10);
-// console.log(espadas);
+// let corazones = new Card("HEARTS", 1);
+// console.log(corazones);
 module.exports = {Card: Card};
