@@ -21,7 +21,7 @@
 
 /**
   * @description Enum utilizado para diferencia los diferentes palos de la baraja
-  * @params No recibimos ningun parametro, ya que no 
+  * @param {}. No recibimos ningun parametro, ya que no 
   * @returns En esta funcion, retornamos la parte real del complejo en cuestion
 */
 const SUITS = {
@@ -43,6 +43,15 @@ const SUITS = {
     }
 }
 
+/**
+    * @description Funcion getter utilizada para retornar el obejto palo al que pertenece
+    * la carta que hemos pasado al constructor
+    * @param {String}. Recibimos el string que hace referencia al palo al que pertenece la
+    * carta.
+    * @return {Object} En esta funcion, retornamos el objeto del palo al que pertenece la 
+    * carta. Retornamos el objeto para en la carta poder almacenar los atributos 
+    * correspondientes, siendo estos valor y palo.
+*/
 function getSuit(suit) {
     switch (suit) {
         case SUITS.SPADES.name:
@@ -56,21 +65,45 @@ function getSuit(suit) {
     }
 }
 
+/**
+    * @description Funcion setter utilizada para almacenar el valor numerico de la carta
+    * principalmente hemos usado esta funcion, ya que hay cartas numericas y cartas literales.
+    * En caso de que usemos una carta literal, esta sera introducida mediante un string, por
+    * lo que introducimos esta funcion para poder clasificarla.
+    * @param {Number - String}. Recibimos el number/string que hace referencia al valor numerico
+    * que queremos que valga la carta.
+    * @return {Number} En esta funcion, retornamos un numero correspondiente al valor de la carta.
+    * Es decir, las cartas literales, se corresponden con un numero de la carta, entonces
+    * lo que hacemos es trabajar con el correspondiente numero, pero solo cuando vayamos a mostrar
+    * el valor, es cuando dejamos el valor numerico y trabajamos con el literal(string).
+*/
 function setRank(rank) {
-    switch (rank) {
-        case "Ace | ace":
+    if (rank === "ace" || rank === "Ace" || rank === "ACE"){
+        return 1;
+    }
+    else if (rank === "jack" || rank === "Jack" || rank === "JACK") {
+        return 11;
+    }
+    else if (rank === "queen" || rank === "Queen" || rank === "QUEEN") {
+        return 12;
+    }
+    else if (rank === "king" || rank === "King" || rank === "KING") {
+        return 13;
+    }
+    else {
+        return rank;
     }
 }
 
 class Card {
     constructor(suit = "CLUBS", rank = 2) {
         this.suit = getSuit(suit);
-        this.rank = rank;
+        this.rank = setRank(rank);
     }
     
     /**
      * @description Funcion getter utilizada para retornar el nombre del palo
-     * @params No recibimos ningun parametro, ya que es un atributo propio de la clase
+     * @param {}. No recibimos ningun parametro, ya que es un atributo propio de la clase
      * @returns En esta funcion, retornamos el atributo nombre del objeto suit, ya que
      * es un objeto que tiene dos atributos, valor y palo
     */
@@ -81,7 +114,7 @@ class Card {
     /**
      * @description Funcion getter utilizada para retornar el valor del palo, ya que
      * son los palos entre si tienen diferentes valores.
-     * @params No recibimos ningun parametro, ya que es un atributo propio de la clase
+     * @param {}. No recibimos ningun parametro, ya que es un atributo propio de la clase
      * @returns En esta funcion, retornamos el atributo valor del objeto suit, ya que
      * es un objeto que tiene dos atributos, valor y palo
     */
@@ -102,13 +135,12 @@ class Card {
     /**
      * @description Funcion setter utilizada para escribir el valor del palo, ya que
      * son los palos entre si tienen diferentes valores.
-     * @params recibimos el nuevo palo que queremos introducir a la carta
+     * @param {String } newSuit Recibimos el nuevo palo que queremos introducir a la carta
      * @returns En esta funcion, no retornamos nada, ya que introducimos el nuevo
      * valor en el atributo que es almacenado
     */
     setCardSuit(newSuit) {
-        this.suit.name = getSuit(newSuit).name;
-        this.suit.value = getSuit(newSuit).value;
+        this.suit = getSuit(newSuit);
     }
 
     /**
@@ -119,29 +151,64 @@ class Card {
      * valor en el atributo que es almacenado
     */
     setCardRank(newRank) {
-        this.rank = newRank;
+        this.rank = setRank(newRank);
     }
 
+    /**
+     * @description Funcion imprimir por pantalla de manera formateada, el valor y
+     * el palo de la carta
+     * @param {}. No recibimos parametros ya que solo queremos mostrar los valores
+     * almacenados.
+     * @returns {String} En esta funcion, retornamos el string que contiene la salida
+     * formateada.
+    */
     toString() {
         let value;
         switch (this.rank) {
             case 1: 
                 value = "Ace";
+                break;
             case 11:
                 value = "Jack";
+                break;
             case 12:
                 value = "Queen";
+                break;
             case 13:
                 value = "King";
+                break;
             default:
                 value = this.rank;
+                break;
         }
 
-        let string = value + " of " + this.suit.name;
-        return string;
+        let salida = value + " of " + this.suit.name;
+        console.log(salida + " 2");
+        return salida;
+    }
+
+    /**
+     * @description Funcion utilizada para comparar dos cartas, es decir, indicar
+     * cual de las dos cartas tiene mayor valor en el juego. Hay dos formas de comparar
+     * dos cartas, 
+     *  - Si los palos son iguales, compararemos cual carta tiene mayor valor numerico
+     *  - Si son de diferente palo, compararemos el valor de los palos.
+     * @param {Card} secondCard Recibimos como parametro, la segunda carta que queremos comparar
+     * @returns {Bool} En esta funcion, retornamos un caracter booleano, indicando si la
+     * carta es mayor o no que la segunda
+    */
+    compareTwoCards(secondCard) {
+        if (this.suit.name === secondCard.getCardSuitName()) {
+            return (this.rank > secondCard.rank) ? true : false;
+        }
+        else {
+            console.log(this.suit.value + " " + secondCard.suit.value);
+            return (this.suit.value > secondCard.suit.value) ? true : false;
+        }
     }
 }
 
-// let corazones = new Card("HEARTS", 1);
-// console.log(corazones);
+let treboles = new Card("CLUBS", 8);
+console.log(treboles);
+console.log(treboles.toString());
 module.exports = {Card: Card};

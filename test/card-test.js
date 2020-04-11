@@ -23,11 +23,33 @@ let carta = require("../src/card");
 describe("Test unitarios para clase carta:",
 function() {
   /**
+      * @description Expect para comprobar el correcto funcionamiento de clase
+      * carta cuando no introducimos ninguna carta en especifico
+    */
+  let cartaPorDefecto = new carta.Card;
+  describe("Probando constructor por defecto de la clase carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento de funcion getter
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando valor nombre de palo", function() {
+      expect(cartaPorDefecto.getCardSuitName()).to.equal("CLUBS");
+    });
+    it ("Comprobando valor de palo", function() {
+      expect(cartaPorDefecto.getCardSuitValue()).to.equal(1);
+    });
+    it ("Comprobando valor numerico de carta", function() {
+      expect(cartaPorDefecto.getCardRank()).to.equal(2);
+    });
+  });
+
+  /**
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Picas
   */
   let picas = new carta.Card("SPADES", 10);
-  describe("Probando constructor de la clase carta para palo SPADES", function() {
+  describe("Probando getter de la clase carta para palo SPADES", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
     * @param {}
@@ -49,7 +71,7 @@ function() {
     * carta para el palo Corazones
   */
   let corazones = new carta.Card("HEARTS", 1);
-  describe("Probando constructor de la clase carta para palo HEARTS", function() {
+  describe("Probando getter de la clase carta para palo HEARTS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
     * @param {}
@@ -70,8 +92,8 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Diamantes
   */
-  let diamantes = new carta.Card("DIAMONDS", );
-  describe("Probando constructor de la clase carta para palo DIAMONDS", function() {
+  let diamantes = new carta.Card("DIAMONDS", "queen");
+  describe("Probando getter de la clase carta para palo DIAMONDS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
     * @param {}
@@ -84,7 +106,7 @@ function() {
       expect(diamantes.getCardSuitValue()).to.equal(2);
     });
     it ("Comprobando valor numerico de carta", function() {
-      expect(diamantes.getCardRank()).to.equal(5);
+      expect(diamantes.getCardRank()).to.equal(12);
     });
   });
 
@@ -93,7 +115,7 @@ function() {
     * carta para el palo Treboles
   */
   let treboles = new carta.Card("CLUBS", 8);
-  describe("Probando constructor de la clase carta para palo CLUBS", function() {
+  describe("Probando getter de la clase carta para palo CLUBS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
     * @param {}
@@ -112,26 +134,8 @@ function() {
 
   /**
     * @description Expect para comprobar el correcto funcionamiento de clase
-    * carta cuando no introducimos ninguna carta en especifico
+    * carta para la funcion setter
   */
-  let cartaPorDefecto = new carta.Card;
-  describe("Probando constructor por defecto de la clase carta", function() {
-    /**
-    * @description Expect para comprobar el correcto funcionamiento de funcion getter
-    * @param {}
-    * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-    */
-    it ("Comprobando valor nombre de palo", function() {
-      expect(cartaPorDefecto.getCardSuitName()).to.equal("CLUBS");
-    });
-    it ("Comprobando valor de palo", function() {
-      expect(cartaPorDefecto.getCardSuitValue()).to.equal(1);
-    });
-    it ("Comprobando valor numerico de carta", function() {
-      expect(cartaPorDefecto.getCardRank()).to.equal(2);
-    });
-  });
-
   describe("Probando setter de la clase carta", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion setter
@@ -148,7 +152,11 @@ function() {
     });
   });
 
-  describe("Probando setter de la clase carta", function() {
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de clase
+    * carta para el metodo toString()
+  */
+  describe("Probando toString() de la clase carta", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion toString()
     * @param {}
@@ -161,10 +169,28 @@ function() {
       expect(corazones.toString()).to.equal("Ace of HEARTS");
     });
     it ("Comprobando la salida de toString()", function() {
-      expect(cartaPorDefecto.toString()).to.equal("9 of SPADES");
+      expect(diamantes.toString()).to.equal("Queen of DIAMONDS");
     });
     it ("Comprobando la salida de toString()", function() {
-      expect(cartaPorDefecto.toString()).to.equal("9 of SPADES");
+      expect(treboles.toString()).to.equal("8 of CLUBS");
+    });
+  });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de clase
+    * carta para el metodo toString()
+  */
+  describe("Probando compareTwoCards() de la clase carta", function() {
+    /**
+    * @description Expect para comprobar el correcto funcionamiento de funcion compareTwoCards()
+    * @param {}
+    * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando la salida de CARTA_1 mayor que CARTA_2", function() {
+      expect(picas.compareTwoCards(diamantes)).to.equal(true);
+    });
+    it ("Comprobando la salida de CARTA_2 mayor que CARTA_1", function() {
+      expect(treboles.compareTwoCards(picas)).to.equal(false);
     });
   });
 });
