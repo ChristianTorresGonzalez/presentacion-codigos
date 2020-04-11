@@ -56,6 +56,12 @@ function getSuit(suit) {
     }
 }
 
+function setRank(rank) {
+    switch (rank) {
+        case "Ace | ace":
+    }
+}
+
 class Card {
     constructor(suit = "CLUBS", rank = 2) {
         this.suit = getSuit(suit);
@@ -114,6 +120,25 @@ class Card {
     */
     setCardRank(newRank) {
         this.rank = newRank;
+    }
+
+    toString() {
+        let value;
+        switch (this.rank) {
+            case 1: 
+                value = "Ace";
+            case 11:
+                value = "Jack";
+            case 12:
+                value = "Queen";
+            case 13:
+                value = "King";
+            default:
+                value = this.rank;
+        }
+
+        let string = value + " of " + this.suit.name;
+        return string;
     }
 }
 
