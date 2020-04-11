@@ -18,7 +18,6 @@
 
 'use strict'
 
-
 /**
   * @description Enum utilizado para diferencia los diferentes palos de la baraja
   * @param {}. No recibimos ningun parametro, ya que no 
@@ -183,7 +182,6 @@ class Card {
         }
 
         let salida = value + " of " + this.suit.name;
-        console.log(salida + " 2");
         return salida;
     }
 
@@ -202,13 +200,9 @@ class Card {
             return (this.rank > secondCard.rank) ? true : false;
         }
         else {
-            console.log(this.suit.value + " " + secondCard.suit.value);
             return (this.suit.value > secondCard.suit.value) ? true : false;
         }
     }
 }
 
-let treboles = new Card("CLUBS", 8);
-console.log(treboles);
-console.log(treboles.toString());
-module.exports = {Card: Card};
+module.exports = {Card: Card, SUITS};
