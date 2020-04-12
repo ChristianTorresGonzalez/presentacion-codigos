@@ -91,16 +91,16 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento del sort(), 
     * encargado de ordenar las cartas del mazo
   */
-  // describe("Probando funcion sort() para barajar mazo", function() {
-  //   /**
-  //    * @description Expect para comprobar el correcto funcionamiento del metodo sort()
-  //    * @param {}
-  //    * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-  //   */
-  //   it ("Comprobando funcion para barajar cartas del mazo", function() {
-  //     let newMazo = new mazos.Deck;
-  //     let copiaMazo = mazo.sort();
-  //     expect(copiaMazo).to.equal(newMazo);
-  //   });
-  // });
+  describe("Probando funcion sort() para barajar mazo", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento del metodo sort()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcion para ordenar cartas del mazo", function() {
+      let newMazo = new mazos.Deck;
+      let copiaMazo = mazo.sort();
+      expect(copiaMazo).to.equal(console.log(newMazo));
+    });
+  });
 });

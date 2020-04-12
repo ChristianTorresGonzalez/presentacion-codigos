@@ -19,32 +19,32 @@
 // const mazo = require("./deck");
 
 class Hand {
-    constructor(label) {
-        this.cards = [];
-        this.label = label;
-    }
+  constructor(label) {
+    this.cards = [];
+    this.label = label;
+  }
 
-    /**
-     * @description Funcion introducir en la ultima posicion de la mano, es decir, la 
-     * que mas arriba
-     * se encuentra.
-     * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
-     * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
-     * mas superficial
-    */
-    addCard(carta) {
-        this.cards.push(carta);
-    }
+  /**
+   * @description Funcion introducir en la ultima posicion de la mano, es decir, la 
+   * que mas arriba
+   * se encuentra.
+   * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
+   * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
+   * mas superficial
+  */
+  addCard(carta) {
+    this.cards.push(carta);
+  }
 
-        /**
-         * @description Funcion sacar la ultima carta de la mano, es decir, la que mas arriba
-         * se encuentra.
-         * @param {}. No recibimos parametros ya que solo queremos eliminar la mas superficial
-         * @returns {Card} En esta funcion, retornamos la carta mas superficial
-        */
-    popCard() {
-        return (this.cards.pop());
-    }
+  /**
+   * @description Funcion sacar la ultima carta de la mano, es decir, la que mas arriba
+   * se encuentra.
+   * @param {}. No recibimos parametros ya que solo queremos eliminar la mas superficial
+   * @returns {Card} En esta funcion, retornamos la carta mas superficial
+  */
+  popCard() {
+    return (this.cards.pop());
+  }
 }
 
 // let mano = new Hand("Mano");

@@ -21,7 +21,7 @@ let card = require("../src/card");
 describe("Test unitarios para clase Mno(Hand):",
 function() {
   /**
-    * @description Expect para comprobar el correcto funcionamiento de clase mano
+   * @description Expect para comprobar el correcto funcionamiento de clase mano
   */
   let mano = new hand.Hand("Mano");
   describe("Probando constructor de la clase mano", function() {
@@ -47,25 +47,25 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando funcion addCard() de la clase mano", function() {
-        let carta = new card.Card("CLUBS", 4);
-        mano.addCard(carta);
+      let carta = new card.Card("CLUBS", 4);
+      mano.addCard(carta);
       expect(mano.cards.length).to.equal(1);
     });
   });
 
+  /**
+   * @description Expect para comprobar el correcto funcionamiento de popCard()
+  */
+  describe("Probando popCard() de la clase mano", function() {
     /**
-        * @description Expect para comprobar el correcto funcionamiento de popCard()
+     * @description Expect para comprobar el correcto funcionamiento popCard() de
+     * la clase mano
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
-    describe("Probando popCard() de la clase mano", function() {
-        /**
-         * @description Expect para comprobar el correcto funcionamiento popCard() de
-         * la clase mano
-         * @param {}
-         * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-        */
-        it ("Comprobando funcion popCard() de la clase mano", function() {
-            mano.popCard();
-            expect(mano.cards.length).to.equal(0);
-        });
+    it ("Comprobando funcion popCard() de la clase mano", function() {
+      mano.popCard();
+      expect(mano.cards.length).to.equal(0);
     });
+  });
 });
