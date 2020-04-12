@@ -71,4 +71,19 @@ function() {
       expect(console.log(mazo.popCard())).to.equal(console.log(lastCard));
     });
   });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento del shuffle, 
+    * encargado de barajar y mezclar las cartas del mazo
+  */
+  describe("Probando funcion shuffle() para barajar mazo", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento del metodo shuffle()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcion para barajar cartas del mazo", function() {
+      expect(mazo).has.a.property('shuffle');
+    });
+  });
 });

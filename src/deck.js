@@ -82,9 +82,12 @@ class Deck {
             arrayAuxiliar.push(this.mazo[index]);
             this.mazo.splice(index, 1);
         }
+
+        this.mazo = arrayAuxiliar;
+        console.log(this.mazo);
     }
 }
 
-// let mazo = new Deck;
-// mazo.write();
+let mazo = new Deck;
+mazo.shuffle();
 module.exports = {Deck:Deck}
