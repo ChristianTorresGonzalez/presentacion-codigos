@@ -19,7 +19,7 @@
 // const mazo = require("./deck");
 
 class Hand {
-  constructor(label) {
+  constructor(label = "") {
     this.cards = [];
     this.label = label;
   }
@@ -57,6 +57,19 @@ class Hand {
       let card = deck.popCard();
       this.cards.push(card);
     }
+  }
+
+  /**
+   * @description Funcion ordenar las cartas del mazo
+   * @param {}. No recibimos parametros ya que solo queremos ordenar las cartas ya
+   * introducidas en el mazo
+   * @returns {Card} En esta funcion no retornamos, ya que ordenaremos las cartas ya
+   * almacenadas en el mazo
+  */
+  sort() {
+    this.cards.sort(function(carta1, carta2) {
+      return carta1.rank - carta2.rank;
+    });
   }
 }
 

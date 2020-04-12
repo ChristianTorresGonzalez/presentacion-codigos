@@ -122,24 +122,22 @@ class Deck {
    * de la mano al mazo
   */
   dealHands(hands, numberOfCards) {
-    this.shuffle();
-    let arrayOfHands = [];
-
-    for (let i = 0; i < hands; i++) {
-      let hand = new mano.Hand("Mano " + (i + 1));
+    for (let i = 0; i < hands.length; i++) {
       for (let j = 0; j < numberOfCards; j++) {
         let card = this.popCard();
-        hand.addCard(card);
+        hands[i].addCard(card);
       }
-      arrayOfHands.push(hand);
     }
-
-    return arrayOfHands;
   }
 }
 
 // let mazo = new Deck;
-// let hands = mazo.dealHands(5, 5);
+// let hands = [];
+// for (let i = 0; i < 5;i++) {
+//   let hand = new mano.Hand("Mano " + (i + 1));
+//   hands.push(hand);
+// }
+// mazo.dealHands(hands, 5);
 // for (let i = 0; i < hands.length;i++) {
 //   for (let j = 0; j < hands[i].cards.length; j++){
 //     console.log(hands[i].cards[j].toString());
