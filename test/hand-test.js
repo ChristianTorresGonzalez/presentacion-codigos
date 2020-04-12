@@ -94,17 +94,17 @@ function() {
    * @description Expect para comprobar el correcto funcionamiento de popCard() de una
    * mano a otra mano
   */
- describe("Probando moveCard() de la clase mano", function() {
-  /**
-   * @description Expect para comprobar el correcto funcionamiento moveCard() de
-   * la clase mano
-   * @param {}
-   * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-  */
-  it ("Comprobando funcion moveCard() de la clase mano-mano", function() {
-    let newMano = new hand.Hand("Mano 2");
-    newMano.moveCard(mano, 5);
-    expect(newMano.cards.length).to.equal(5);
+  describe("Probando moveCard() de la clase mano", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento moveCard() de
+     * la clase mano
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcion moveCard() de la clase mano-mano", function() {
+      let newMano = new hand.Hand("Mano 2");
+      newMano.moveCard(mano, 5);
+      expect(newMano.cards.length).to.equal(5);
+    });
   });
-});
 });

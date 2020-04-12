@@ -99,6 +99,19 @@ class Deck {
       return carta1.value - carta2.value;
     });
   }
+
+  /**
+   * @description Funcion mover carta de una mano al mazo
+   * @param {Hand}. Recibimos la mano desde la que vamos a mover la carta al mazo
+   * @returns {Card} En esta funcion no retornamos, ya que solo movemos una carta 
+   * de la mano al mazo
+  */
+  moveCard(deck, numberOfCards) {
+    for (let i = 0; i < numberOfCards; i++) {
+      let card = deck.popCard();
+      this.mazo.push(card);
+    }
+  }
 }
 
 // let mazo = new Deck;

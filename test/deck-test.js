@@ -103,4 +103,23 @@ function() {
       expect(copiaMazo).to.equal(console.log(newMazo));
     });
   });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento del moveCard(), 
+    * encargado de mover una carta del mazo
+  */
+  describe("Probando funcion moveCard() para mover carta al mazo", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento del metodo moveCard()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcion para mover cartas del mazo", function() {
+      let newMazo = new mazos.Deck;
+      newMazo.shuffle();
+      let nuevoMazo = new mazos.Deck;
+      nuevoMazo.moveCard(newMazo, 1);
+      expect(nuevoMazo.mazo.length).to.equal(53);
+    });
+  });
 });
