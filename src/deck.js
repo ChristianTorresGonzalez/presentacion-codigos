@@ -17,6 +17,7 @@
 'use strict'
 
 const carta = require("./card");
+const mano = require("./hand");
 
 class Deck {
   constructor() {
@@ -84,7 +85,6 @@ class Deck {
     }
 
     this.mazo = arrayAuxiliar;
-    console.log(this.mazo);
   }
 
   /**
@@ -112,10 +112,37 @@ class Deck {
       this.mazo.push(card);
     }
   }
+
+  /**
+   * @description Ejercicio 1. Implementar funcion para crear numero de manos y 
+   * añadirle el numero de cartas deseadas
+   * @param {Hand}. Recibimos el numero de manos que tenemos que crear y la cantidad
+   * de cartas a añadir en cada mazo
+   * @returns {Card} En esta funcion no retornamos, ya que solo movemos una carta 
+   * de la mano al mazo
+  */
+  dealHands(hands, numberOfCards) {
+    this.shuffle();
+    let arrayOfHands = [];
+
+    for (let i = 0; i < hands; i++) {
+      let hand = new mano.Hand("Mano " + (i + 1));
+      for (let j = 0; j < numberOfCards; j++) {
+        let card = this.popCard();
+        hand.addCard(card);
+      }
+      arrayOfHands.push(hand);
+    }
+
+    return arrayOfHands;
+  }
 }
 
 // let mazo = new Deck;
-// mazo.shuffle();
-// mazo.sort();
-// mazo.write();
+// let hands = mazo.dealHands(5, 5);
+// for (let i = 0; i < hands.length;i++) {
+//   for (let j = 0; j < hands[i].cards.length; j++){
+//     console.log(hands[i].cards[j].toString());
+//   }
+// }
 module.exports = {Deck:Deck}
