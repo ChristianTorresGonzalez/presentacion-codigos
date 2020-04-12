@@ -46,11 +46,26 @@ function() {
      * @param {}
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
-    it ("Comprobando que mano tiene constructor", function() {
+    it ("Comprobando funcion addCard() de la clase mano", function() {
         let carta = new card.Card("CLUBS", 4);
         mano.addCard(carta);
       expect(mano.cards.length).to.equal(1);
     });
   });
 
+    /**
+        * @description Expect para comprobar el correcto funcionamiento de popCard()
+    */
+    describe("Probando popCard() de la clase mano", function() {
+        /**
+         * @description Expect para comprobar el correcto funcionamiento popCard() de
+         * la clase mano
+         * @param {}
+         * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+        */
+        it ("Comprobando funcion popCard() de la clase mano", function() {
+            mano.popCard();
+            expect(mano.cards.length).to.equal(0);
+        });
+    });
 });

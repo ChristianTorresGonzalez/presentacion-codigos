@@ -36,15 +36,15 @@ class Hand {
         this.cards.push(carta);
     }
 
-    //     /**
-    //      * @description Funcion sacar la ultima carta de la mano, es decir, la que mas arriba
-    //      * se encuentra.
-    //      * @param {}. No recibimos parametros ya que solo queremos eliminar la mas superficial
-    //      * @returns {Card} En esta funcion, retornamos la carta mas superficial
-    //     */
-    // popCard() {
-    //     return (this.cards.pop());
-    // }
+        /**
+         * @description Funcion sacar la ultima carta de la mano, es decir, la que mas arriba
+         * se encuentra.
+         * @param {}. No recibimos parametros ya que solo queremos eliminar la mas superficial
+         * @returns {Card} En esta funcion, retornamos la carta mas superficial
+        */
+    popCard() {
+        return (this.cards.pop());
+    }
 }
 
 // let mano = new Hand("Mano");
