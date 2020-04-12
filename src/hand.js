@@ -25,16 +25,16 @@ class Hand {
     }
 
     /**
-    //  * @description Funcion introducir en la ultima posicion de la mano, es decir, la 
-    //  * que mas arriba
-    //  * se encuentra.
-    //  * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
-    //  * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
-    //  * mas superficial
-    // */
-    // addCard(carta) {
-    //     this.cards.push(carta);
-    // }
+     * @description Funcion introducir en la ultima posicion de la mano, es decir, la 
+     * que mas arriba
+     * se encuentra.
+     * @param {}. No recibimos parametros ya que solo queremos insertar la mas superficial
+     * @returns {Card} En esta funcion no retornamos, ya que instroducimos la carta 
+     * mas superficial
+    */
+    addCard(carta) {
+        this.cards.push(carta);
+    }
 
     //     /**
     //      * @description Funcion sacar la ultima carta de la mano, es decir, la que mas arriba
