@@ -16,6 +16,7 @@
 
 const expect = require("chai").expect;
 let hand = require("../src/hand");
+let deck = require("../src/deck");
 let card = require("../src/card");
 
 describe("Test unitarios para clase Mno(Hand):",
@@ -24,6 +25,8 @@ function() {
    * @description Expect para comprobar el correcto funcionamiento de clase mano
   */
   let mano = new hand.Hand("Mano");
+  let mazo = new deck.Deck;
+  mazo.shuffle();
   describe("Probando constructor de la clase mano", function() {
     /**
      * @description Expect para comprobar el correcto funcionamiento del constructor de
@@ -66,6 +69,23 @@ function() {
     it ("Comprobando funcion popCard() de la clase mano", function() {
       mano.popCard();
       expect(mano.cards.length).to.equal(0);
+    });
+  });
+
+  /**
+   * @description Expect para comprobar el correcto funcionamiento de popCard()
+  */
+  describe("Probando moveCard() de la clase mano", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento moveCard() de
+     * la clase mano
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcion moveCard() de la clase mano", function() {
+      mano.moveCard(mazo, 5);
+      console.log(mano);
+      expect(mano.cards.length).to.equal(5);
     });
   });
 });

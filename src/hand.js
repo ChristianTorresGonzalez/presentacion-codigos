@@ -45,6 +45,19 @@ class Hand {
   popCard() {
     return (this.cards.pop());
   }
+
+  /**
+   * @description Funcion mover la ultima carta del mazo a la mano, es decir, la que mas 
+   * arriba se encuentra.
+   * @param {}. No recibimos parametros ya que solo queremos eliminar la mas superficial
+   * @returns {Card} En esta funcion, no retornamos nada
+  */
+  moveCard(deck, numberOfCards) {
+    for (let i = 0; i < numberOfCards; i++) {
+      let card = deck.popCard();
+      this.cards.push(card);
+    }
+  }
 }
 
 // let mano = new Hand("Mano");
