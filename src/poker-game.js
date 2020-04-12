@@ -49,10 +49,8 @@ function createPokerHands(arrayOfHands) {
  * una escalera
  * @returns {Card} En esta funcion, no retornamos nada
 */
-function comprobarEscalera() {
-  let arrayOfHands = [];
+function comprobarEscalera(arrayOfHands) {
   let straightPosition = [];
-  createPokerHands(arrayOfHands);
 
   for (let i = 0; i < arrayOfHands.length; i++) {
     arrayOfHands[i].sort();
@@ -82,4 +80,41 @@ function comprobarEscalera() {
   }
 }
 
-comprobarEscalera();
+function comprobarPareja(arrayOfHands) {
+  for (let i = 0; i < arrayOfHands.length; i++) {
+    let pairs = arrayOfHands[i].hasPair() 
+    console.log("HAS " + pairs + " PAIR");
+    if (pairs > 0) {
+      for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
+        // console.log(arrayOfHands[i].cards[j].toString());
+      }
+      // console.log();
+    }
+    // console.log();
+  }
+}
+
+function comprobarTrio(arrayOfHands) {
+  for (let i = 0; i < arrayOfHands.length; i++) {
+    for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
+      console.log(arrayOfHands[i].cards[j].toString());
+    }
+    console.log();
+    if (arrayOfHands[i].hasThreeOfaKind()) {
+      console.log("HAS Three Of aKind") 
+    }    
+  }
+}
+
+function main() {
+  let arrayOfHands = [];
+  createPokerHands(arrayOfHands);
+
+  comprobarEscalera(arrayOfHands);
+  console.log();
+  comprobarPareja(arrayOfHands);
+  console.log();
+  comprobarTrio(arrayOfHands);
+}
+
+main()
