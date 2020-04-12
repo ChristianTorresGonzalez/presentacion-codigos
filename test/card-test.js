@@ -37,10 +37,56 @@ function() {
       expect(cartaPorDefecto.getCardSuitName()).to.equal("CLUBS");
     });
     it ("Comprobando valor de palo", function() {
-      expect(cartaPorDefecto.getCardSuitValue()).to.equal(1);
+      expect(cartaPorDefecto.getCardSuitValue()).to.equal(0);
     });
     it ("Comprobando valor numerico de carta", function() {
       expect(cartaPorDefecto.getCardRank()).to.equal(2);
+    });
+  });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de la
+    * funcion setRank()
+  */
+  describe("Probando constructor por defecto de la clase carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento de funcion setRank()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcionamiento de setRank()", function() {
+      expect(carta.setRank(5)).to.equal(5);
+    });
+  });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de la
+    * funcion setValue()
+  */
+  describe("Probando constructor por defecto de la clase carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento de funcion setRank()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcionamiento de setRank()", function() {
+      expect(carta.setValue(carta.SUITS.CLUBS, 5)).to.equal(5);
+    });
+  });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de la
+    * funcion setValue()
+  */
+  describe("Probando constructor por defecto de la clase carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento de funcion setRank()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcionamiento de setRank()", function() {
+      let newSuit = carta.setSuit("CLUBS");
+      expect(carta.setSuit("CLUBS")).to.equal(newSuit);
     });
   });
 
@@ -59,7 +105,7 @@ function() {
       expect(picas.getCardSuitName()).to.equal("SPADES");
     });
     it ("Comprobando valor de palo", function() {
-      expect(picas.getCardSuitValue()).to.equal(4);
+      expect(picas.getCardSuitValue()).to.equal(52);
     });
     it ("Comprobando valor numerico de carta", function() {
       expect(picas.getCardRank()).to.equal(10);
@@ -81,7 +127,7 @@ function() {
       expect(corazones.getCardSuitName()).to.equal("HEARTS");
     });
     it ("Comprobando valor de palo", function() {
-      expect(corazones.getCardSuitValue()).to.equal(3);
+      expect(corazones.getCardSuitValue()).to.equal(28);
     });
     it ("Comprobando valor numerico de carta", function() {
       expect(corazones.getCardRank()).to.equal(1);
@@ -103,7 +149,7 @@ function() {
       expect(diamantes.getCardSuitName()).to.equal("DIAMONDS");
     });
     it ("Comprobando valor de palo", function() {
-      expect(diamantes.getCardSuitValue()).to.equal(2);
+      expect(diamantes.getCardSuitValue()).to.equal(14);
     });
     it ("Comprobando valor numerico de carta", function() {
       expect(diamantes.getCardRank()).to.equal(12);
@@ -125,7 +171,7 @@ function() {
       expect(treboles.getCardSuitName()).to.equal("CLUBS");
     });
     it ("Comprobando valor de palo", function() {
-      expect(treboles.getCardSuitValue()).to.equal(1);
+      expect(treboles.getCardSuitValue()).to.equal(0);
     });
     it ("Comprobando valor numerico de carta", function() {
       expect(treboles.getCardRank()).to.equal(8);

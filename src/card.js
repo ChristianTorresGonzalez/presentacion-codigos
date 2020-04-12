@@ -26,19 +26,19 @@
 const SUITS = {
     SPADES: {
         name: "SPADES",
-        value: 4
+        value: 52
     },
     HEARTS: {
         name: "HEARTS",
-        value: 3
+        value: 28
     },
     DIAMONDS: {
         name: "DIAMONDS",
-        value: 2
+        value: 14
     },
     CLUBS: {
         name: "CLUBS",
-        value: 1
+        value: 0
     }
 }
 
@@ -51,7 +51,7 @@ const SUITS = {
     * carta. Retornamos el objeto para en la carta poder almacenar los atributos 
     * correspondientes, siendo estos valor y palo.
 */
-function getSuit(suit) {
+function setSuit(suit) {
     switch (suit) {
         case SUITS.SPADES.name:
             return SUITS.SPADES;
@@ -94,10 +94,22 @@ function setRank(rank) {
     }
 }
 
+/**
+    * @description Funcion setter utilizada para almacenar el valor total de la carta, es decir,
+    * el valor resultante de la suma del palo mas el valor de la carta, utilizado para comparar
+    * cartas
+    * @param {}. No recibimos nada, ya que utilizamos los valores ya almacenados
+    * @return {Number} En esta funcion, retornamos un numero correspondiente al valor de la carta.
+*/
+function setValue(suit, rank) {
+    return suit.value + rank;
+}
+
 class Card {
     constructor(suit = "CLUBS", rank = 2) {
-        this.suit = getSuit(suit);
+        this.suit = setSuit(suit);
         this.rank = setRank(rank);
+        this.value = setValue(this.suit, this.rank);
     }
     
     /**
@@ -139,7 +151,7 @@ class Card {
      * valor en el atributo que es almacenado
     */
     setCardSuit(newSuit) {
-        this.suit = getSuit(newSuit);
+        this.suit = setSuit(newSuit);
     }
 
     /**
@@ -202,7 +214,10 @@ class Card {
         else {
             return (this.suit.value > secondCard.suit.value) ? this : secondCard;
         }
+
+        // console.log(this.value + " " + secondCard.value)
+        // return (this.value > secondCard.value) ? this : secondCard;
     }
 }
 
-module.exports = {Card: Card, SUITS};
+module.exports = {Card: Card, SUITS, setRank, setValue, setSuit};

@@ -86,8 +86,23 @@ class Deck {
         this.mazo = arrayAuxiliar;
         console.log(this.mazo);
     }
+
+    /**
+     * @description Funcion ordenar las cartas del mazo
+     * @param {}. No recibimos parametros ya que solo queremos ordenar las cartas ya
+     * introducidas en el mazo
+     * @returns {Card} En esta funcion no retornamos, ya que ordenaremos las cartas ya
+     * almacenadas en el mazo
+    */
+    sort() {
+        this.mazo.sort(function(carta1, carta2) {
+            return carta1.value - carta2.value;
+        });
+    }
 }
 
-let mazo = new Deck;
-mazo.shuffle();
+// let mazo = new Deck;
+// mazo.shuffle();
+// mazo.sort();
+// mazo.write();
 module.exports = {Deck:Deck}
