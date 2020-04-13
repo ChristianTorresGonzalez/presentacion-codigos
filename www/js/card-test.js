@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Source: card-test.js</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
-
-<body>
-
-<div id="main">
-
-    <h1 class="page-title">Source: card-test.js</h1>
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
   * @copyright Universidad de La Laguna
   * Escuela Superior de Ingeniería y Tecnología
   * Grado en Ingeniería Informática
@@ -42,10 +14,7 @@
   * @version 1.0.0
 */
 
-'use strict'
-
-const chai.expect = require("chai").chai.expect;
-let carta = require("../src/card");
+// 'use strict'
 
 describe("Test unitarios para clase carta:",
 function() {
@@ -57,15 +26,15 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando que card tiene constructor", function() {
-      chai.expect(carta).has.a.property('constructor');
+      chai.expect(Card).has.a.property('constructor');
     });
   });
 
   /**
-      * @description Expect para comprobar el correcto funcionamiento de clase
-      * carta cuando no introducimos ninguna carta en especifico
-    */
-  let cartaPorDefecto = new carta.Card;
+    * @description Expect para comprobar el correcto funcionamiento de clase
+    * carta cuando no introducimos ninguna carta en especifico
+  */
+  let cartaPorDefecto = new Card;
   describe("Probando constructor por defecto de la clase carta", function() {
     /**
      * @description Expect para comprobar el correcto funcionamiento de funcion getter
@@ -94,34 +63,19 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setRank(5)).to.equal(5);
+      chai.expect(setRank(5)).to.equal(5);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setRank("ace")).to.equal(1);
+      chai.expect(setRank("ace")).to.equal(1);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setRank("jack")).to.equal(11);
+      chai.expect(setRank("jack")).to.equal(11);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setRank("queen")).to.equal(12);
+      chai.expect(setRank("queen")).to.equal(12);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setRank("king")).to.equal(13);
-    });
-  });
-
-  /**
-    * @description Expect para comprobar el correcto funcionamiento de la
-    * funcion setValue()
-  */
-  describe("Probando constructor por defecto de la clase carta", function() {
-    /**
-     * @description Expect para comprobar el correcto funcionamiento de funcion setRank()
-     * @param {}
-     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
-    */
-    it ("Comprobando funcionamiento de setRank()", function() {
-      chai.expect(carta.setValue(carta.SUITS.CLUBS, 5)).to.equal(5);
+      chai.expect(setRank("king")).to.equal(13);
     });
   });
 
@@ -136,20 +90,35 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando funcionamiento de setRank()", function() {
-      let newSuit = carta.setSuit("SPADES");
-      chai.expect(carta.setSuit("SPADES")).to.equal(newSuit);
+      chai.expect(setValue(SUITS.CLUBS, 5)).to.equal(5);
+    });
+  });
+
+  /**
+    * @description Expect para comprobar el correcto funcionamiento de la
+    * funcion setValue()
+  */
+  describe("Probando constructor por defecto de la clase carta", function() {
+    /**
+     * @description Expect para comprobar el correcto funcionamiento de funcion setRank()
+     * @param {}
+     * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
+    */
+    it ("Comprobando funcionamiento de setRank()", function() {
+      let newSuit = setSuit("SPADES");
+      chai.expect(setSuit("SPADES")).to.equal(newSuit);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      let newSuit = carta.setSuit("HEARTS");
-      chai.expect(carta.setSuit("HEARTS")).to.equal(newSuit);
+      let newSuit = setSuit("HEARTS");
+      chai.expect(setSuit("HEARTS")).to.equal(newSuit);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      let newSuit = carta.setSuit("DIAMONDS");
-      chai.expect(carta.setSuit("DIAMONDS")).to.equal(newSuit);
+      let newSuit = setSuit("DIAMONDS");
+      chai.expect(setSuit("DIAMONDS")).to.equal(newSuit);
     });
     it ("Comprobando funcionamiento de setRank()", function() {
-      let newSuit = carta.setSuit("CLUBS");
-      chai.expect(carta.setSuit("CLUBS")).to.equal(newSuit);
+      let newSuit = setSuit("CLUBS");
+      chai.expect(setSuit("CLUBS")).to.equal(newSuit);
     });
   });
 
@@ -157,7 +126,7 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Picas
   */
-  let picas = new carta.Card("SPADES", 10);
+  let picas = new Card("SPADES", 10);
   describe("Probando getter de la clase carta para palo SPADES", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
@@ -179,7 +148,7 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Corazones
   */
-  let corazones = new carta.Card("HEARTS", 1);
+  let corazones = new Card("HEARTS", 1);
   describe("Probando getter de la clase carta para palo HEARTS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
@@ -201,7 +170,7 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Diamantes
   */
-  let diamantes = new carta.Card("DIAMONDS", "queen");
+  let diamantes = new Card("DIAMONDS", "queen");
   describe("Probando getter de la clase carta para palo DIAMONDS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
@@ -223,7 +192,7 @@ function() {
     * @description Expect para comprobar el correcto funcionamiento de clase
     * carta para el palo Treboles
   */
-  let treboles = new carta.Card("CLUBS", 8);
+  let treboles = new Card("CLUBS", 8);
   describe("Probando getter de la clase carta para palo CLUBS", function() {
     /**
     * @description Expect para comprobar el correcto funcionamiento de funcion getter
@@ -302,26 +271,4 @@ function() {
       chai.expect(treboles.compareTwoCards(picas)).to.equal(picas);
     });
   });
-});</code></pre>
-        </article>
-    </section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Apr 13 2020 23:15:48 GMT+0100 (hora de verano de Europa occidental)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
-</html>
+});

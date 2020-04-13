@@ -34,9 +34,9 @@ function() {
   });
 
   /**
-      * @description Expect para comprobar el correcto funcionamiento de clase
-      * carta cuando no introducimos ninguna carta en especifico
-    */
+    * @description Expect para comprobar el correcto funcionamiento de clase
+    * carta cuando no introducimos ninguna carta en especifico
+  */
   let cartaPorDefecto = new carta.Card;
   describe("Probando constructor por defecto de la clase carta", function() {
     /**

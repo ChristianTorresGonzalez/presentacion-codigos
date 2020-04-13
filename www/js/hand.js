@@ -16,8 +16,6 @@
 
 'use strict'
 
-// const mazo = require("./deck");
-
 class Hand {
   constructor(label = "") {
     this.cards = [];
@@ -90,5 +88,3 @@ class Hand {
     });
   }
 }
-
-module.exports = {Hand:Hand}
