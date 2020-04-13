@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.44% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>38/45</span>
+        <span class='fraction'>40/45</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>28/35</span>
+        <span class='fraction'>30/35</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.44% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>38/45</span>
+        <span class='fraction'>40/45</span>
       </div>
     </div>
   </div>
@@ -265,7 +265,9 @@
 220
 221
 222
-223</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+223
+224
+225</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,13 +321,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">271×</span>
+<span class="cline-any cline-yes">277×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-yes">69×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-yes">69×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-yes">68×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">71×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -343,18 +345,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">270×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">270×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">270×</span>
+<span class="cline-any cline-yes">274×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">269×</span>
+<span class="cline-any cline-yes">273×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">272×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">268×</span>
@@ -558,7 +562,9 @@ function setSuit(suit) {
   * principalmente hemos usado esta funcion, ya que hay cartas numericas y cartas literales.
   * En caso de que usemos una carta literal, esta sera introducida mediante un string, por
   * lo que introducimos esta funcion para poder clasificarla.
-  * @param {Number - String}. Recibimos el number/string que hace referencia al valor numerico
+  * @param {Number}. Recibimos el number/string que hace referencia al valor numerico
+  * que queremos que valga la carta.
+  * @param {Number}. Recibimos el number/string que hace referencia al valor numerico
   * que queremos que valga la carta.
   * @return {Number} En esta funcion, retornamos un numero correspondiente al valor de la carta.
   * Es decir, las cartas literales, se corresponden con un numero de la carta, entonces
@@ -566,11 +572,11 @@ function setSuit(suit) {
   * el valor, es cuando dejamos el valor numerico y trabajamos con el literal(string).
 */
 function setRank(rank) {
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (rank === "ace" || rank === "Ace" || rank === "ACE"){
-<span class="cstat-no" title="statement not covered" >    return 1;</span>
+  if (rank === "ace" || rank === "Ace" || rank === "ACE"){
+    return 1;
   }
-  else <span class="missing-if-branch" title="if path not taken" >I</span>if (rank === "jack" || rank === "Jack" || rank === "JACK") {
-<span class="cstat-no" title="statement not covered" >    return 11;</span>
+  else if (rank === "jack" || rank === "Jack" || rank === "JACK") {
+    return 11;
   }
   else if (rank === "queen" || rank === "Queen" || rank === "QUEEN") {
     return 12;
@@ -715,7 +721,7 @@ module.exports = {Card: Card, SUITS, setRank, setValue, setSuit};</pre></td></tr
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 13 2020 22:12:01 GMT+0100 (hora de verano de Europa occidental)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 13 2020 23:31:03 GMT+0100 (hora de verano de Europa occidental)
 </div>
 </div>
 <script src="../prettify.js"></script>

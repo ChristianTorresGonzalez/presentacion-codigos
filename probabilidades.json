@@ -1,0 +1,39 @@
+{
+ "name": "Probabilidades",
+ "cartaAlta": {
+  "nombre": "Carta alta",
+  "valor": 50.288
+ },
+ "pareja": {
+  "nombre": "Pareja",
+  "valor": 42.167
+ },
+ "doblePareja": {
+  "nombre": "Doble Pareja",
+  "valor": 4.671
+ },
+ "trio": {
+  "nombre": "Trio",
+  "valor": 2.291
+ },
+ "escalera": {
+  "nombre": "Escalrea",
+  "valor": 0.347
+ },
+ "color": {
+  "nombre": "Color",
+  "valor": 0.20600000000000002
+ },
+ "full": {
+  "nombre": "Full",
+  "valor": 0
+ },
+ "poker": {
+  "nombre": "Poker",
+  "valor": 0.026
+ },
+ "escaleraColor": {
+  "nombre": "Real",
+  "valor": 0.004
+ }
+}
