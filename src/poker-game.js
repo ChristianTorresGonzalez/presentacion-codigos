@@ -29,7 +29,7 @@ const cartas = require("./card");
  * valores de manera directa
 */
 function createPokerHands(arrayOfHands) {
-  const NUMBEROFHANDS = 7;
+  const NUMBEROFHANDS = 1;
   let mazo = new deck.Deck;
   
   mazo.shuffle();
@@ -146,6 +146,8 @@ function comprobarPuntuacion(arrayOfHands) {
     straightColor = straight[1];
     poker = trio[1];
 
+    // if (pair >= 2 && trio > 0) console.log(pair, trios);
+
     classify(arrayOfHands[i], pair, trio[0], straight[0], color, trio[1], straightColor);
   }
 }
@@ -166,7 +168,7 @@ function classify(hand, pair, trios, straight, color, poker, straightColor) {
   else if (poker !== 0) {
     hand.setLabel("Poker");
   }
-  else if (doblePareja !== 0 && trios !== 0) {
+  else if (doblePareja > 1 && trios > 0) {
     hand.setLabel("Full");
   }
   else if (color !== 0) {
@@ -197,7 +199,9 @@ function calcularProbabilidades() {
   let poker = 0;
   let real = 0;
 
-  for (let i = 0; i < 100000; i++) {
+  const NUMBEROFITERATIONS = 100000;
+
+  for (let i = 0; i < NUMBEROFITERATIONS; i++) {
     let arrayOfHands = [];
 
     createPokerHands(arrayOfHands);
@@ -237,15 +241,15 @@ function calcularProbabilidades() {
   }
 
   console.log("Porcentajes: ");
-  console.log("Carta alta: " + (cartaAlta/700000) * 100);
-  console.log("Pareja: " + (pareja/700000) * 100);
-  console.log("Doble: " + (doble/700000) * 100);
-  console.log("Trio: " + (trio/700000));
-  console.log("Escalrea: " + (escalera/700000) * 100);
-  console.log("Color: " + (color/700000) * 100);
-  console.log("Full: " + (full/700000) * 100);
-  console.log("Poker: " + (poker/700000) * 100);
-  console.log("Real: " + (real/700000) * 100);
+  console.log("Carta alta: " + (cartaAlta/NUMBEROFITERATIONS) * 100);
+  console.log("Pareja: " + (pareja/NUMBEROFITERATIONS) * 100);
+  console.log("Doble: " + (doble/NUMBEROFITERATIONS) * 100);
+  console.log("Trio: " + (trio/NUMBEROFITERATIONS) * 100);
+  console.log("Escalrea: " + (escalera/NUMBEROFITERATIONS) * 100);
+  console.log("Color: " + (color/NUMBEROFITERATIONS) * 100);
+  console.log("Full: " + (full/NUMBEROFITERATIONS) * 100);
+  console.log("Poker: " + (poker/NUMBEROFITERATIONS) * 100);
+  console.log("Real: " + (real/NUMBEROFITERATIONS) * 100);
 }
 
 /**

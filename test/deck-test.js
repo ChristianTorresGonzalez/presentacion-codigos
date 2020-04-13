@@ -4,18 +4,17 @@
   * Grado en Ingeniería Informática
   * Asignatura: Programación de Aplicaciones Interactivas (PAI)
   * Curso: 3º Itinerario 1
-  * Práctica 7 PAI - Mandelbrot. Numero complejos
+  * Práctica 8 PAI - Poker. Programacion Orientada a Objetos
   * @author: Christian Torres Gonzalez alu0101137902@ull.edu.es
-  * @description: Programa que dado un lienzo de canvas, va a calcular, dada
-  * una coordenada X e Y, que dada un numro de iteraciones, para cada coordenada,
-  * y utilizando la función f(Zn) = Z(n-1)^2 + c, donde c es un numero complejo dado,
-  * y zn-1 es el resultado de elevar al cuadrado la funcion para valor Zn-1. Para poder
-  * llegar a un resultado deseado, debemos partir de la copndicion de que x e y, que son
-  * las coordenadas del punto del lienzo de canvas que estamos tratando.
-  * @since 28/03/2020
-  * @file Fichero de implementacion de test unitarios
+  * @description: En este archivo, implementaremos los correspondientes metodos
+  * necesarios para trabajar con la clase mano. Donde almacenaremos un conjunto
+  * de cartas, formando el mazo del jugador.
+  * @since 10/04/2020
+  * @file Fichero de testeo de la clase Deck
   * @version 1.0.0
 */
+
+'use strict'
 
 const expect = require("chai").expect;
 let mazos = require("../src/deck");

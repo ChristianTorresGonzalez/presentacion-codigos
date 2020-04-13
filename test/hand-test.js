@@ -10,9 +10,11 @@
   * necesarios para trabajar con la clase mano. Donde almacenaremos un conjunto
   * de cartas, formando el mazo del jugador.
   * @since 10/04/2020
-  * @file Fichero de implementacion de la clase mano
+  * @file Fichero de testeo de la clase Hand
   * @version 1.0.0
 */
+
+'use strict'
 
 const expect = require("chai").expect;
 let hand = require("../src/hand");
