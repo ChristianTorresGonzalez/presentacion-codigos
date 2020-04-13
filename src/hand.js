@@ -23,6 +23,15 @@ class Hand {
     this.cards = [];
     this.label = label;
   }
+
+  /**
+   * @description Funcion getter para retornar nueva etiqueta
+   * @param {}. String que contiene la nueva etiqueta
+   * @returns {String} Retornamos el string que contiene la etiqueta
+  */
+  getLabel() {
+    return this.label;
+  }
   
   /**
    * @description Funcion setter para introducir nueva etiqueta

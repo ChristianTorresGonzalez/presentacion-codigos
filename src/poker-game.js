@@ -29,7 +29,7 @@ const cartas = require("./card");
  * valores de manera directa
 */
 function createPokerHands(arrayOfHands) {
-  const NUMBEROFHANDS = 5;
+  const NUMBEROFHANDS = 7;
   let mazo = new deck.Deck;
   
   mazo.shuffle();
@@ -39,7 +39,7 @@ function createPokerHands(arrayOfHands) {
     arrayOfHands.push(hand);
   }
 
-  mazo.dealHands(arrayOfHands, 7);
+  mazo.dealHands(arrayOfHands, 5);
 }
 
 /**
@@ -147,31 +147,6 @@ function comprobarPuntuacion(arrayOfHands) {
     poker = trio[1];
 
     classify(arrayOfHands[i], pair, trio[0], straight[0], color, trio[1], straightColor);
-
-    // if (straight[0] !== 0 || pair !== 0 || trio[0] !== 0 || color !== 0 || 
-    //   straightColor !== 0 || poker !== 0) {
-    //   for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
-    //     console.log(arrayOfHands[i].cards[j].toString());
-    //   }
-
-    //   console.log();
-    //   console.log("Has " + straight[0] + " straight");
-    //   if (pair >= 2) {
-    //     console.log("Has 0 pairs");
-    //     console.log("Has 1 Double Pairs");
-    //   }
-    //   else {
-    //     console.log("Has " + pair + " pairs");
-    //     console.log("Has 0 Double Pairs");
-    //   }
-
-    //   console.log("Has " + trio[0] + " Three Of a Kind");
-    //   console.log("Has " + poker + " Poker");
-    //   console.log("Has " + color + " Color");
-    //   console.log("Has " + straightColor + " Straight Flush");
-    //   console.log("-----------------------------------------------");
-    //   console.log();
-    // }
   }
 }
 
@@ -211,6 +186,68 @@ function classify(hand, pair, trios, straight, color, poker, straightColor) {
   }
 }
 
+function calcularProbabilidades() {
+  let cartaAlta = 0;
+  let pareja = 0;
+  let doble = 0;
+  let trio = 0;
+  let escalera = 0;
+  let color = 0;
+  let full = 0;
+  let poker = 0;
+  let real = 0;
+
+  for (let i = 0; i < 100000; i++) {
+    let arrayOfHands = [];
+
+    createPokerHands(arrayOfHands);
+    comprobarPuntuacion(arrayOfHands);
+
+    for (let i = 0; i < arrayOfHands.length; i++) {
+      switch (arrayOfHands[i].getLabel()) {
+        case "Pair":
+          pareja++;
+          break;
+        case "Double Pair":
+          doble++;
+          break;
+        case "Trio":
+          trio++;
+          break;
+        case "Straight":
+          escalera++;
+          break;
+        case "Color":
+          color++;
+          break;
+        case "Full":
+          full++;
+          break;
+        case "Poker":
+          poker++;
+          break;
+        case "Straight Flush":
+          real++;
+          break;
+        default:
+          cartaAlta++;
+          break;
+      }
+    }
+  }
+
+  console.log("Porcentajes: ");
+  console.log("Carta alta: " + (cartaAlta/700000) * 100);
+  console.log("Pareja: " + (pareja/700000) * 100);
+  console.log("Doble: " + (doble/700000) * 100);
+  console.log("Trio: " + (trio/700000));
+  console.log("Escalrea: " + (escalera/700000) * 100);
+  console.log("Color: " + (color/700000) * 100);
+  console.log("Full: " + (full/700000) * 100);
+  console.log("Poker: " + (poker/700000) * 100);
+  console.log("Real: " + (real/700000) * 100);
+}
+
 /**
  * @description Funcion main utilizada para llamar al resto de funciones
  * @param {}. No recibimos parametros ya que es aqui donde creamos el array de manos
@@ -218,18 +255,7 @@ function classify(hand, pair, trios, straight, color, poker, straightColor) {
  * @returns {} En esta funcion, no retornamos nada
 */
 function main() {
-  let arrayOfHands = [];
-  createPokerHands(arrayOfHands);
-
-  comprobarPuntuacion(arrayOfHands);
-
-  for (let i = 0; i < arrayOfHands.length; i++) {
-    console.log(arrayOfHands[i]);
-    for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
-      console.log(arrayOfHands[i].cards[j].toString());
-    }
-    console.log();
-  }
+  calcularProbabilidades();
 }
 
 main()
