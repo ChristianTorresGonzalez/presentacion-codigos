@@ -23,6 +23,15 @@ class Hand {
     this.cards = [];
     this.label = label;
   }
+  
+  /**
+   * @description Funcion setter para introducir nueva etiqueta
+   * @param {String} label String que contiene la nueva etiqueta
+   * @returns {} No retornamos nada ya que solo queremos introducir
+  */
+  setLabel(label) {
+    this.label = label;
+  }
 
   /**
    * @description Funcion introducir en la ultima posicion de la mano, es decir, la 

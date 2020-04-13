@@ -18,7 +18,7 @@
 
 const hand = require("./hand");
 
-class PokerHand extends hand.Hand{
+class PokerHand extends hand.Hand {
   constructor(label) {
       super(label);
   }
@@ -67,32 +67,62 @@ class PokerHand extends hand.Hand{
   hasThreeOfaKind() {
     let copia = this.cards.sort();
     let contador = 0;
+    let trios = [0, 0];
     for (let i = 1; i < copia.length; i++) {
+      if (copia[i].getCardRank() === copia[i - 1].getCardRank()) {
+        contador++;
+      }
+      else {
+        contador = 0;
+      }
+
       if (contador === 2) {
         if (i !== copia.length - 1) {
           if (copia[i].getCardRank() !== copia[i + 1].getCardRank()) {
-            return 1;
-          }
-        }
-      }
-      else {
-        if (copia[i].getCardRank() === copia[i - 1].getCardRank()) {
-          if (i === copia.length - 1) {
-            if (contador === 1) {
-              return 1;
-            }
+            trios[0]++;
           }
           else {
-            contador++;
+            trios[1]++;
           }
         }
         else {
-          contador = 0;
+          trios[0]++;
         }
       }
     }
+    return trios;
+  }
 
-    return 0;
+  /**
+   * @description Funcion utilizada para calcular el numero de trios en la mano
+   * @param {}. No recibimos parametros ya que solo queremos contar el numero de
+   * trios que hay en la mano
+   * @returns {Number} En esta funcion retornamos el numero de trios que hay en
+   *  el mazo, ya que asi nos es mas facil, luego calcular si en el mazo otras
+   * jugadas de mayor valor
+  */
+  hasColor() {
+    let handCopia = this.cards.sort();
+    let palos = [0, 0, 0, 0];
+
+    for (let i = 0; i < handCopia.length; i++) {
+      switch (handCopia[i].getCardSuitName()) {
+        case "SPADES":
+          palos[0]++;
+          break;
+        case "HEARTS":
+          palos[1]++;
+          break;
+        case "DIAMONDS":
+          palos[2]++;
+          break;
+        case "CLUBS":
+          palos[3]++;
+          break;    
+      }
+    }
+
+    return (palos.filter(palo => palo >= 5).length);
   }
 }
 
