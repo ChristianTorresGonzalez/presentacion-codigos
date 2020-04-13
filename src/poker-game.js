@@ -28,93 +28,122 @@ const pokerhand = require("./poker-hand");
  * valores de manera directa
 */
 function createPokerHands(arrayOfHands) {
-    const NUMBEROFHANDS = 7;
-    let mazo = new deck.Deck;
-    
-    mazo.shuffle();
+  const NUMBEROFHANDS = 7;
+  let mazo = new deck.Deck;
+  
+  mazo.shuffle();
 
-    for (let i = 0; i < NUMBEROFHANDS; i++) {
-        let hand = new pokerhand.PokerHand("Poker " + (i + 1));
-        arrayOfHands.push(hand);
-    }
+  for (let i = 0; i < NUMBEROFHANDS; i++) {
+    let hand = new pokerhand.PokerHand("Poker " + (i + 1));
+    arrayOfHands.push(hand);
+  }
 
-    mazo.dealHands(arrayOfHands, 7);
+  mazo.dealHands(arrayOfHands, 7);
 }
-
 
 /**
  * @description Funcion Utilizada para calcular si las manos introducidas contienen alguna
- * escalera
- * @param {}. No recibimos parametros ya que solo queremos mostrar si alguna mano tiene
- * una escalera
- * @returns {Card} En esta funcion, no retornamos nada
+ * escaleras
+ * @param {Hand}. Recibimos la mano a la que vamos a comprobar si tiene alguna escalera
+ * @returns {Number} Retornamos el numero de escaleras que tiene la mano
 */
-function comprobarEscalera(arrayOfHands) {
-  let straightPosition = [];
-
-  for (let i = 0; i < arrayOfHands.length; i++) {
-    arrayOfHands[i].sort();
-    let straight = 0;
-    for (let j = 1; j < arrayOfHands[i].cards.length; j++) {
-      let resta = arrayOfHands[i].cards[j].getCardRank() - arrayOfHands[i].cards[j - 1].getCardRank();
-      if (resta === 0) {
-      }
-      else if (resta === 1) {
+function comprobarEscalera(hand) {
+  let handCopia = hand;
+  handCopia.sort();
+  let straight = 0;
+  let escaleras = 0;
+  for (let i = 1; i < handCopia.cards.length; i++) {
+    let resta = handCopia.cards[i].getCardRank() - handCopia.cards[i - 1].getCardRank();
+    if (resta === 0) {
+    }
+    else if (resta === 1) {
+      if (straight >= 4) {
+        escaleras++;
         straight++;
       }
-      else {
-        if (straight !== 4)
-        straight = 0;
-      }
     }
-    if (straight >= 4) {
-      straightPosition.push(arrayOfHands[i]);
+    else {
+      if (straight !== 4)
+      straight = 0;
     }
   }
-  console.log("There're " + straightPosition.length + " straight");
-
-  for (let i = 0; i < straightPosition.length; i++) {
-    for (let j = 0; j < straightPosition[i].cards.length; j++) {
-      console.log(straightPosition[i].cards[j].toString());
-    }
-  }
+  
+  return escaleras;
 }
 
-function comprobarPareja(arrayOfHands) {
+/**
+ * @description Funcion Utilizada para calcular si las manos introducidas contienen alguna
+ * pareja
+ * @param {Hand}. Recibimos la mano a la que vamos a comprobar si tiene alguna pareja
+ * @returns {Number} Retornamos el numero de parejas que tiene la mano
+*/
+function comprobarPareja(hand) {
+  let pairs = hand.hasPair();
+  return pairs;
+}
+
+/**
+ * @description Funcion Utilizada para calcular si las manos introducidas contienen algun
+ * trio
+ * @param {Hand}. Recibimos la mano a la que vamos a comprobar si tiene alguna pareja
+ * @returns {Number} Retornamos el numero de trios que tiene la mano
+*/
+function comprobarTrio(hand) {
+  let trio = hand.hasThreeOfaKind();
+  return trio;
+}
+
+/**
+ * @description Funcion Utilizada para calcular si las manos introducidas contienen alguna
+ * escalera, pareja, doble pareja, o trio.
+ * @param {Array}. Recibimos el array de manos a las que le vamos a comprobar las puntuaciones
+ * que tienen
+ * @returns {} No retornamos nada, ya que imprime por pantalla los resultados obtenidos
+*/
+function comprobarParejaDobleParejaTrio(arrayOfHands) {
+  let straight = false;
+  let pair = 0;
+  let trio = 0;
+
   for (let i = 0; i < arrayOfHands.length; i++) {
-    let pairs = arrayOfHands[i].hasPair() 
-    console.log("HAS " + pairs + " PAIR");
-    if (pairs > 0) {
+    straight = comprobarEscalera(arrayOfHands[i]);
+    pair = comprobarPareja(arrayOfHands[i]);
+    trio = comprobarTrio(arrayOfHands[i]);
+
+    if (straight || pair) {
       for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
-        // console.log(arrayOfHands[i].cards[j].toString());
+        console.log(arrayOfHands[i].cards[j].toString());
       }
-      // console.log();
+
+      console.log();
+      console.log("Has " + straight + " straight");
+      if (pair >= 2) {
+        console.log("Has 0 pairs");
+        console.log("Has 1 Double Pairs");
+      }
+      else {
+        console.log("Has " + pair + " pairs");
+        console.log("Has 0 Double Pairs");
+      }
+      console.log("Has " + trio + " Three Of a Kind");
+      console.log("-----------------------------------------------");
+      console.log();
     }
-    // console.log();
   }
+
 }
 
-function comprobarTrio(arrayOfHands) {
-  for (let i = 0; i < arrayOfHands.length; i++) {
-    for (let j = 0; j < arrayOfHands[i].cards.length; j++) {
-      console.log(arrayOfHands[i].cards[j].toString());
-    }
-    console.log();
-    if (arrayOfHands[i].hasThreeOfaKind()) {
-      console.log("HAS Three Of aKind") 
-    }    
-  }
-}
-
+/**
+ * @description Funcion main utilizada para llamar al resto de funciones
+ * @param {}. No recibimos parametros ya que es aqui donde creamos el array de manos
+ * y es ese array el que le pasamos al resto de funciones
+ * @returns {} En esta funcion, no retornamos nada
+*/
 function main() {
   let arrayOfHands = [];
   createPokerHands(arrayOfHands);
 
-  comprobarEscalera(arrayOfHands);
-  console.log();
-  comprobarPareja(arrayOfHands);
-  console.log();
-  comprobarTrio(arrayOfHands);
+  comprobarParejaDobleParejaTrio(arrayOfHands);
 }
 
 main()

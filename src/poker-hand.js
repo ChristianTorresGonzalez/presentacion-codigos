@@ -71,7 +71,7 @@ class PokerHand extends hand.Hand{
       if (contador === 2) {
         if (i !== copia.length - 1) {
           if (copia[i].getCardRank() !== copia[i + 1].getCardRank()) {
-            return true;
+            return 1;
           }
         }
       }
@@ -79,7 +79,7 @@ class PokerHand extends hand.Hand{
         if (copia[i].getCardRank() === copia[i - 1].getCardRank()) {
           if (i === copia.length - 1) {
             if (contador === 1) {
-              return true;
+              return 1;
             }
           }
           else {
@@ -92,7 +92,7 @@ class PokerHand extends hand.Hand{
       }
     }
 
-    return false;
+    return 0;
   }
 }
 
