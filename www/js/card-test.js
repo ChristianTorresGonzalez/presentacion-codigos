@@ -14,7 +14,7 @@
   * @version 1.0.0
 */
 
-// 'use strict'
+'use strict'
 
 describe("Test unitarios para clase carta:",
 function() {

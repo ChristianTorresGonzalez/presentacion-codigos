@@ -1,0 +1,64 @@
+<!--  
+/**
+  * @copyright Universidad de La Laguna
+  * Escuela Superior de Ingeniería y Tecnología
+  * Grado en Ingeniería Informática
+  * Asignatura: Programación de Aplicaciones Interactivas (PAI)
+  * Curso: 3º Itinerario 1
+  * Práctica 8 PAI - Poker. Programacion Orientada a Objetos
+  * @author: Christian Torres Gonzalez alu0101137902@ull.edu.es
+  * @description: En este archivo, implementaremos los correspondientes metodos
+  * necesarios para trabajar con la clase mano. Donde almacenaremos un conjunto
+  * de cartas, formando el mazo del jugador.
+  * @since 10/04/2020
+  * @file Fichero de implementacion de la clase mano
+  * @version 1.0.0
+*/
+-->
+<html>
+  <head>
+    <title>Christian Torres Gonzalez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  </head>
+    <body>
+        <p><a href="./index.html">Home</a> </p>
+        <H1>Practica 8 PAI. Poker</H1>
+        <H2>Christian Torres Gonzalez</H2>
+        <!-- <script src="./js/probabilidades.json"></script> -->
+
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jugada</th>
+                        <th>Probabilidad</th>
+                    </tr>
+                <thead>
+                <tbody id="res">
+                
+                <tbody>
+            </table>
+        </div>
+        <script>
+            const xhttp = new XMLHttpRequest();
+            xhttp.open('GET', './js/probabilidades.json', true);
+            xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let datos = JSON.parse(this.responseText);
+                    let res = document.querySelector('#res');
+                    res.innerHTML = '';
+
+                    for (let item of datos) {
+                        res.innerHTML += `
+                            <tr>
+                                <td>${item.nombre}</td>
+                                <td>${item.valor}</td>
+                            </tr>
+                        `
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

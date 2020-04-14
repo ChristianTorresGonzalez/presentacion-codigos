@@ -20,9 +20,9 @@ class Deck {
   constructor() {
     this.mazo = [];
 
-    for (let suit in carta.SUITS) {
+    for (let suit in SUITS) {
       for (let i = 0; i < 13; i++) {
-        let card = new carta.Card(suit, i + 1);
+        let card = new Card(suit, i + 1);
         this.mazo.push(card);
       }
     }

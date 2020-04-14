@@ -17,7 +17,7 @@
 'use strict'
 
 
-describe("Test unitarios para clase Mno(Hand):",
+describe("Test unitarios para clase Mano(Hand):",
 function() {
   /**
    * @description Expect para comprobar el correcto funcionamiento de clase mano
