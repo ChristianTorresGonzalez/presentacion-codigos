@@ -43,7 +43,7 @@ const SUITS = {
 }
 
 /**
-  * @description Funcion getter utilizada para retornar el obejto palo al que pertenece
+  * @description Funcion setter utilizada para retornar el obejto palo al que pertenece
   * la carta que hemos pasado al constructor
   * @param {String}. Recibimos el string que hace referencia al palo al que pertenece la
   * carta.
