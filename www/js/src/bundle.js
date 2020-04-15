@@ -19772,8 +19772,6 @@ function calcularProbabilidades() {
     {nombre: "Real2", valor: (real/NUMBEROFITERATIONS) * 100},
   ];
 
-  console.log(probabilidades);
-
   fs.writeFile("probabilidades.json", JSON.stringify(probabilidades, null, " "), function (err) {
     if (err) {
       throw err;
