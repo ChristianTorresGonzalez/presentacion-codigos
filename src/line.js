@@ -7,10 +7,9 @@
   * Práctica 8 PAI - Poker. Programacion Orientada a Objetos
   * @author: Christian Torres Gonzalez alu0101137902@ull.edu.es
   * @description: En este archivo, implementaremos los correspondientes metodos
-  * necesarios para trabajar con la clase figura. La clase implementada en esta seccion,
-  * sera la clase padre del resto de clase que crearemos
+  * necesarios para trabajar con la clase linea.
   * @since 10/04/2020
-  * @file Fichero de implementacion de la clase figura
+  * @file Fichero de implementacion de la clase linea
   * @version 1.0.0
 */
 
@@ -18,21 +17,25 @@
 
 const figura = require("./figura");
 
-class Point extends figura.Figura {
-    constructor(color, x, y, size) {
+class Line extends figura.Figura {
+    constructor(color, x, y, sizeX, sizeY, grosor) {
         super(color);
         this.coordenadaX = x;
         this.coordenadaY = y;
-        this.size = size;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        this.grosor = grosor;
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color;
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = this.grosor;
 
         ctx.beginPath();
-        ctx.arc(this.coordenadaX, this.coordenadaY, this.size, Math.PI * 2, true);
-        ctx.fill();
+        ctx.moveTo(this.coordenadaX, this.coordenadaY);
+        ctx.lineTo(this.sizeX, this.sizeY);
+        ctx.stroke();
     }
 }
 
-module.exports = {Point: Point};
+module.exports = {Line: Line};

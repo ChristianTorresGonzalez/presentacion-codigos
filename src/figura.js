@@ -21,12 +21,9 @@ class Figura {
     this.color = color;
   }
 
-  /**
-   * @description Funcion utilizada para pintar la figura correspondiente
-   * @param {}. No recibimos ningun parametro, ya que pinta los propios atributos
-   * @returns En esta funcion, no retornamos nada ya que solo pintamos
-   */
   draw() {
-    // Codigo utilizado para pintar la correspondiente figura
+    
   }
 }
+
+module.exports = {Figura};
