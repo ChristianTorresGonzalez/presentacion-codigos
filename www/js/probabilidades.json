@@ -1,38 +1,38 @@
 [
- {
-  "nombre": "Carta alta",
-  "valor": 50.273999999999994
- },
- {
-  "nombre": "Pareja",
-  "valor": 42.088
- },
- {
-  "nombre": "Doble Pareja",
-  "valor": 4.806
- },
- {
-  "nombre": "Trio",
-  "valor": 2.26
- },
- {
-  "nombre": "Escalrea",
-  "valor": 0.361
- },
- {
-  "nombre": "Color",
-  "valor": 0.186
- },
- {
-  "nombre": "Full",
-  "valor": 0
- },
- {
-  "nombre": "Poker",
-  "valor": 0.024
- },
- {
-  "nombre": "Real",
-  "valor": 0.001
- }
-]
+    {
+     "nombre": "Carta alta",
+     "valor": 49.26
+    },
+    {
+     "nombre": "Pareja",
+     "valor": 43.16
+    },
+    {
+     "nombre": "Doble Pareja",
+     "valor": 4.9
+    },
+    {
+     "nombre": "Trio",
+     "valor": 2.16
+    },
+    {
+     "nombre": "Escalrea",
+     "valor": 0.3
+    },
+    {
+     "nombre": "Color",
+     "valor": 0.18
+    },
+    {
+     "nombre": "Full",
+     "valor": 0
+    },
+    {
+     "nombre": "Poker",
+     "valor": 0.04
+    },
+    {
+     "nombre": "Real",
+     "valor": 0
+    }
+   ]

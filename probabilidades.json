@@ -1,27 +1,27 @@
 [
  {
   "nombre": "Carta alta",
-  "valor": 50.111000000000004
+  "valor": 49.26
  },
  {
   "nombre": "Pareja",
-  "valor": 42.18
+  "valor": 43.16
  },
  {
   "nombre": "Doble Pareja",
-  "valor": 4.756
+  "valor": 4.9
  },
  {
   "nombre": "Trio",
-  "valor": 2.332
+  "valor": 2.16
  },
  {
   "nombre": "Escalrea",
-  "valor": 0.424
+  "valor": 0.3
  },
  {
   "nombre": "Color",
-  "valor": 0.166
+  "valor": 0.18
  },
  {
   "nombre": "Full",
@@ -29,10 +29,10 @@
  },
  {
   "nombre": "Poker",
-  "valor": 0.029
+  "valor": 0.04
  },
  {
   "nombre": "Real",
-  "valor": 0.002
+  "valor": 0
  }
 ]

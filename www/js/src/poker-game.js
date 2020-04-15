@@ -199,7 +199,7 @@ function calcularProbabilidades() {
   let poker = 0;
   let real = 0;
 
-  const NUMBEROFITERATIONS = 100000;
+  const NUMBEROFITERATIONS = 5000;
   const PORCENTAJE = 100;
 
   for (let i = 0; i < NUMBEROFITERATIONS; i++) {

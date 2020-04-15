@@ -19781,14 +19781,14 @@ function calcularProbabilidades() {
     }
   });
 
-  // fs.writeFile("www/js/probabilidades.json", JSON.stringify(probabilidades, null, " "), function (err) {
-  //   if (err) {
-  //     throw err;
-  //   }
-  //   else {
-  //     console.log('Saved!');
-  //   }
-  // });
+  fs.writeFile("../../probabilidades.json", JSON.stringify(probabilidades, null, " "), function (err) {
+    if (err) {
+      throw err;
+    }
+    else {
+      console.log('Saved!');
+    }
+  });
 }
 
 /**

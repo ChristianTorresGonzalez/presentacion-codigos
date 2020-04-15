@@ -199,7 +199,8 @@ function calcularProbabilidades() {
   let poker = 0;
   let real = 0;
 
-  const NUMBEROFITERATIONS = 100000;
+  const NUMBEROFITERATIONS = 5000;
+  const PORCENTAJE = 100;
 
   for (let i = 0; i < NUMBEROFITERATIONS; i++) {
     let arrayOfHands = [];
@@ -241,26 +242,26 @@ function calcularProbabilidades() {
   }
 
   console.log("Porcentajes: ");
-  console.log("Carta alta: " + (cartaAlta/NUMBEROFITERATIONS) * 100);
-  console.log("Pareja: " + (pareja/NUMBEROFITERATIONS) * 100);
-  console.log("Doble Pareja: " + (doble/NUMBEROFITERATIONS) * 100);
-  console.log("Trio: " + (trio/NUMBEROFITERATIONS) * 100);
-  console.log("Escalrea: " + (escalera/NUMBEROFITERATIONS) * 100);
-  console.log("Color: " + (color/NUMBEROFITERATIONS) * 100);
-  console.log("Full: " + (full/NUMBEROFITERATIONS) * 100);
-  console.log("Poker: " + (poker/NUMBEROFITERATIONS) * 100);
-  console.log("Real: " + (real/NUMBEROFITERATIONS) * 100);
+  console.log("Carta alta: " + (cartaAlta/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Pareja: " + (pareja/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Doble Pareja: " + (doble/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Trio: " + (trio/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Escalrea: " + (escalera/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Color: " + (color/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Full: " + (full/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Poker: " + (poker/NUMBEROFITERATIONS) * PORCENTAJE);
+  console.log("Real: " + (real/NUMBEROFITERATIONS) * PORCENTAJE);
 
   let probabilidades = [
-    {nombre: "Carta alta", valor: (cartaAlta/NUMBEROFITERATIONS) * 100},
-    {nombre: "Pareja", valor: (pareja/NUMBEROFITERATIONS) * 100},
-    {nombre: "Doble Pareja", valor: (doble/NUMBEROFITERATIONS) * 100},
-    {nombre: "Trio", valor: (trio/NUMBEROFITERATIONS) * 100},
-    {nombre: "Escalrea", valor: (escalera/NUMBEROFITERATIONS) * 100},
-    {nombre: "Color", valor: (color/NUMBEROFITERATIONS) * 100},
-    {nombre: "Full", valor: (full/NUMBEROFITERATIONS) * 100},
-    {nombre: "Poker", valor: (poker/NUMBEROFITERATIONS) * 100},
-    {nombre: "Real", valor: (real/NUMBEROFITERATIONS) * 100},
+    {nombre: "Carta alta", valor: (cartaAlta/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Pareja", valor: (pareja/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Doble Pareja", valor: (doble/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Trio", valor: (trio/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Escalrea", valor: (escalera/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Color", valor: (color/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Full", valor: (full/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Poker", valor: (poker/NUMBEROFITERATIONS) * PORCENTAJE},
+    {nombre: "Real", valor: (real/NUMBEROFITERATIONS) * PORCENTAJE},
   ];
 
   fs.writeFile("probabilidades.json", JSON.stringify(probabilidades, null, " "), function (err) {
