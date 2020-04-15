@@ -19,20 +19,25 @@
 const figura = require("./figura");
 
 class Point extends figura.Figura {
-    constructor(color, x, y, size) {
-        super(color);
-        this.coordenadaX = x;
-        this.coordenadaY = y;
-        this.size = size;
-    }
+  constructor(color, x, y, size) {
+    super(color);
+    this.coordenadaX = x;
+    this.coordenadaY = y;
+    this.size = size;
+  }
 
-    draw(ctx) {
-        ctx.fillStyle = this.color;
+  /**
+    * @description Funcion utilizada para pintar
+    * @param {}. No recibimos nada
+    * @return {Object} En esta funcion, no retornamos nada, ya que pintamos de manera directa
+  */
+  draw(ctx) {
+    ctx.fillStyle = this.color;
 
-        ctx.beginPath();
-        ctx.arc(this.coordenadaX, this.coordenadaY, this.size, Math.PI * 2, true);
-        ctx.fill();
-    }
+    ctx.beginPath();
+    ctx.arc(this.coordenadaX, this.coordenadaY, this.size, Math.PI * 2, true);
+    ctx.fill();
+  }
 }
 
 module.exports = {Point: Point};

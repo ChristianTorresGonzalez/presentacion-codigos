@@ -18,24 +18,29 @@
 const figura = require("./figura");
 
 class Line extends figura.Figura {
-    constructor(color, x, y, sizeX, sizeY, grosor) {
-        super(color);
-        this.coordenadaX = x;
-        this.coordenadaY = y;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
-        this.grosor = grosor;
-    }
+  constructor(color, x, y, sizeX, sizeY, grosor) {
+    super(color);
+    this.coordenadaX = x;
+    this.coordenadaY = y;
+    this.sizeX = sizeX;
+    this.sizeY = sizeY;
+    this.grosor = grosor;
+  }
 
-    draw(ctx, color) {
-        ctx.strokeStyle = color;
-        ctx.lineWidth = this.grosor;
+  /**
+    * @description Funcion utilizada para pintar
+    * @param {}. No recibimos nada
+    * @return {Object} En esta funcion, no retornamos nada, ya que pintamos de manera directa
+  */
+  draw(ctx, color) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = this.grosor;
 
-        ctx.beginPath();
-        ctx.moveTo(this.coordenadaX, this.coordenadaY);
-        ctx.lineTo(this.sizeX, this.sizeY);
-        ctx.stroke();
-    }
+    ctx.beginPath();
+    ctx.moveTo(this.coordenadaX, this.coordenadaY);
+    ctx.lineTo(this.sizeX, this.sizeY);
+    ctx.stroke();
+  }
 }
 
 module.exports = {Line: Line};

@@ -21,8 +21,13 @@ class Figura {
     this.color = color;
   }
 
+  /**
+    * @description Funcion utilizada para pintar
+    * @param {}. No recibimos nada
+    * @return {Object} En esta funcion, no retornamos nada, ya que pintamos de manera directa
+  */
   draw() {
-    
+
   }
 }
 

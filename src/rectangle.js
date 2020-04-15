@@ -17,30 +17,29 @@
 
 const figura = require("./figura");
 
-class Line extends figura.Figura {
-  constructor(color, x, y, sizeX, sizeY, grosor) {
+class Rectangle extends figura.Figura {
+  constructor(color, point1X, point1Y, point2X, point2Y, point3X, point3Y, point4X, point4Y) {
     super(color);
-    this.coordenadaX = x;
-    this.coordenadaY = y;
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
-    this.grosor = grosor;
+    this.coordenada1X = point1X;
+    this.coordenada1Y = point1Y;
+    this.coordenada2X = point2X;
+    this.coordenada2Y = point2Y;
+    this.coordenada3X = point3X;
+    this.coordenada3Y = point3Y;
+    this.coordenada4X = point4X;
+    this.coordenada4Y = point4Y;
   }
 
-  /**
-    * @description Funcion utilizada para pintar
-    * @param {}. No recibimos nada
-    * @return {Object} En esta funcion, no retornamos nada, ya que pintamos de manera directa
-  */
-  draw(ctx, color) {
-    ctx.strokeStyle = color;
-    ctx.lineWidth = this.grosor;
+  draw() {
+    ctx.strokeStyle = this.color;
 
     ctx.beginPath();
-    ctx.moveTo(this.coordenadaX, this.coordenadaY);
-    ctx.lineTo(this.sizeX, this.sizeY);
+    ctx.moveTo(this.coordenada1X, this.coordenada1Y);
+    ctx.lineTo(this.coordenada2X, this.coordenada2Y);
+    ctx.lineTo(this.coordenada3X, this.coordenada3Y);
+    ctx.lineTo(this.coordenada4X, this.coordenada4Y);
     ctx.stroke();
   }
 }
 
-module.exports = {Line: Line};
+module.exports = {Rectangle: Rectangle};

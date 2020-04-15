@@ -15,11 +15,11 @@
 'use strict'
 
 const expect = require("chai").expect;
-let line = require("../src/line");
+let rectangle = require("../src/rectangle");
 
 describe("Test unitarios para clase Line:",
 function() {
-  let linea = new line.Line("red", 1, 2, 3);
+  let rectangulo = new rectangle.Rectangle("red", 1, 2, 3);
   describe("Probando constructor de la clase Line", function() {
     /**
      * @description Expect para comprobar el correcto funcionamiento del constructor de
@@ -28,7 +28,7 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando que Line tiene constructor", function() {
-      expect(linea).has.a.property('constructor');
+      expect(rectangulo).has.a.property('constructor');
     });
   });
 
@@ -40,7 +40,7 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando que Line tiene draw()", function() {
-      expect(linea).has.a.property('draw');
+      expect(rectangulo).has.a.property('draw');
     });
   });
 });

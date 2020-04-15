@@ -97,10 +97,13 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 function pintarCuadricula() {
-    let origen = canvas.height / 7;
+    let origen_vertical = canvas.width / 8;
+    let origen_horizontal = canvas.height / 8;
     for (let i = 0; i < 7; i++) {
-        let linea = new line.Line("purple", (i + 1) * origen, 0, (i + 1) * origen, canvas.height, 2);
-        linea.draw(ctx, "purple");
+        let linea_vertical = new line.Line("purple", (i + 1) * origen_vertical, 0, (i + 1) * origen_vertical, canvas.height, 2);
+        linea_vertical.draw(ctx, "purple");
+        let linea_horizontal = new line.Line("purple", 0, (i + 1) * origen_horizontal, canvas.width, (i + 1) * origen_horizontal, 2);
+        linea_horizontal.draw(ctx, "purple");
     }
 }
 
