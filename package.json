@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov -F istanbul_mocha -t 10582157-0990-491a-9bea-26b2926523f6",
     "start": "node web-server/app.js"
   },
   "repository": {
@@ -24,9 +24,11 @@
     "browserify": "^16.5.1",
     "browserify-fs": "^1.0.0",
     "chai": "^4.2.0",
-    "codecov": "^3.6.5",
     "express": "^4.17.1",
     "istanbul": "^0.4.5",
     "mocha": "^7.1.1"
+  },
+  "devDependencies": {
+    "codecov": "^3.6.5"
   }
 }
