@@ -1,5 +1,5 @@
 codecov:
-  token: "10582157-0990-491a-9bea-26b2926523f6"
+  token: "d0d0b024-aad1-4aa9-8cd8-bfdc33106466"
   bot: "codecov-io"
   ci:
     - "github.com"
