@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov -F istanbul_mocha -t 10582157-0990-491a-9bea-26b2926523f6",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha",
     "start": "node web-server/app.js"
   },
   "repository": {

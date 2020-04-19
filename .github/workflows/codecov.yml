@@ -31,4 +31,4 @@ jobs:
     # de subir el reporte al repo en la web
     - uses: codecov/codecov-action@v1.0.6
       with:
-        token: "9b641e22-b814-4b3b-b256-41995102d520"
+        token: "10582157-0990-491a-9bea-26b2926523f6"
