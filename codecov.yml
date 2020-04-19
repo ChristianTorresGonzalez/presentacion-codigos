@@ -2,7 +2,7 @@ codecov:
   token: "10582157-0990-491a-9bea-26b2926523f6"
   bot: "codecov-io"
   ci:
-    - "travis.org"
+    - "github.com"
   strict_yaml_branch: "yaml-config"
   max_report_age: 24
   disable_default_path_fixes: no
@@ -11,39 +11,39 @@ codecov:
     after_n_builds: 2
     wait_for_ci: yes
 
-coverage:
-  precision: 2
-  round: down
-  range: "70...100"
-  notify:
-    # notification blocks. See: https://docs.codecov.io/docs/codecovyml-reference#section-coverage-notify
-  status:
-    project:
-      default: # This can be anything, but it needs to exist as the name
-        # basic settings
-        target: auto
-        threshold: 5%
-        base: auto 
-        # advanced settings
-        branches: 
-          - master
-        if_no_uploads: error
-        if_not_found: success
-        if_ci_failed: error
-        only_pulls: false
-        flags: 
-          - frontend
-        paths: 
-          - src/frontend
-parsers:
-  javascript:
-    enable_partials: yes
-  v1:
-    include_full_missed_files: true  # default false
- gcov:
-    branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
+# coverage:
+#   precision: 2
+#   round: down
+#   range: "70...100"
+#   notify:
+#     # notification blocks. See: https://docs.codecov.io/docs/codecovyml-reference#section-coverage-notify
+#   status:
+#     project:
+#       default: # This can be anything, but it needs to exist as the name
+#         # basic settings
+#         target: auto
+#         threshold: 5%
+#         base: auto 
+#         # advanced settings
+#         branches: 
+#           - master
+#         if_no_uploads: error
+#         if_not_found: success
+#         if_ci_failed: error
+#         only_pulls: false
+#         flags: 
+#           - frontend
+#         paths: 
+#           - src/frontend
+# parsers:
+#   javascript:
+#     enable_partials: yes
+#   v1:
+#     include_full_missed_files: true  # default false
+#  gcov:
+#     branch_detection:
+#       conditional: yes
+#       loop: yes
+#       method: no
+#       macro: no
 
