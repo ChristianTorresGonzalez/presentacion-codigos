@@ -4,7 +4,7 @@
   "description": "Practica 8 PAI. Poker",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "test" 
   },
   "scripts": {
     "test": "istanbul cover node_modules/mocha/bin/_mocha",
