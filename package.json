@@ -4,10 +4,10 @@
   "description": "Practica 8 PAI. Poker",
   "main": "index.js",
   "directories": {
-    "test": "test" 
+    "test": "test"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov -F istanbul_mocha -t 1ebe6d80-9876-4035-86a7-3999461e573b",
     "start": "node web-server/app.js"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "browserify": "^16.5.1",
     "browserify-fs": "^1.0.0",
     "chai": "^4.2.0",
+    "codecov": "^3.6.5",
     "express": "^4.17.1",
     "istanbul": "^0.4.5",
     "mocha": "^7.1.1"
