@@ -93,7 +93,7 @@ function() {
      * @returns Mostramos en caso de funcionar, la funcion, que la funcion es correcta
     */
     it ("Comprobando funcionamiento de setRank()", function() {
-      expect(carta.setValue(carta.SUITS.CLUBS, 5)).to.equal(6);
+      expect(carta.setValue(carta.SUITS.CLUBS, 5)).to.equal(5);
     });
   });
 
